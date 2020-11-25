@@ -19,9 +19,9 @@ on:
 # Environment variables are defined so that they can be used throughout the job definitions.
 env:
   imageRepository: 'content-api'
-  resourceGroupName: 'Fabmedical-[SHORT_SUFFIX]'
-  containerRegistryName: 'fabmedical[SHORT_SUFFIX]'
-  containerRegistry: 'fabmedical[SHORT_SUFFIX].azurecr.io'
+  resourceGroupName: 'Fabmedical-abs'
+  containerRegistryName: 'fabmedicalabt'
+  containerRegistry: 'fabmedicalabt.azurecr.io'
   dockerfilePath: './content-api'
   tag: '${{ github.run_id  }}'
 
@@ -38,8 +38,8 @@ jobs:
     - name: Build and push an image to container registry
       uses: docker/build-push-action@v1
       with:
-        username: ${{ secrets.ACR_USERNAME }}
-        password: ${{ secrets.ACR_PASSWORD }}
+        username: 'fabmedicalabt'
+        password: 'pU7bgHgQt4XYeoFsocnR7S5t+YESx19/'
         path: ${{ env.dockerfilePath  }}
         dockerfile: '${{ env.dockerfilePath }}/Dockerfile'
         registry: ${{ env.containerRegistry }}
